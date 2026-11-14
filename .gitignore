@@ -12,6 +12,20 @@ dist
 dist-ssr
 *.local
 
+# Anotações pessoais
+ideias.txt
+
+# Variáveis de ambiente (nunca versionar segredos)
+.env
+.env.*
+!.env.example
+
+# Segredos locais do Supabase
+.supabase-db-password
+.supabase-access-token
+.admin-temp-password
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
