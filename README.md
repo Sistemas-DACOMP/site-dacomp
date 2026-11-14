@@ -353,11 +353,12 @@ Passos:
 
    ```bash
    npx supabase@latest secrets set \
-     "APP_ORIGINS=https://seu-site.vercel.app,http://localhost:5173"
+     "APP_ORIGINS=https://site-dacomp.vercel.app,http://localhost:5173"
    ```
 
-   Atualize `supabase/config.toml` (`site_url` e
-   `additional_redirect_urls`) e rode `npx supabase@latest config push`.
+   O `site_url` e os `additional_redirect_urls` em `supabase/config.toml`
+   já apontam para `https://site-dacomp.vercel.app`; rode
+   `npx supabase@latest config push` para aplicar.
 
 > A CSP em `vercel.json` e em `public/_headers` referencia a URL do projeto
 > Supabase. Se o projeto for recriado em outro ref, atualize os dois arquivos.

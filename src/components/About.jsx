@@ -52,7 +52,12 @@ export default function About() {
           <div className="about-cards-deck">
             {/* Front Card */}
             <div className="about-deck-card card-front">
-              <img src="/images/fotos/festas.jpg" alt="Eventos e Festas DACOMP" />
+              <img
+                src="/images/fotos/festas.jpg"
+                alt="Eventos e Festas DACOMP"
+                loading="lazy"
+                decoding="async"
+              />
               <div className="about-card-overlay">
                 <h3 className="about-card-title">Integração & Festas</h3>
                 <p className="about-card-desc">
@@ -66,7 +71,12 @@ export default function About() {
 
             {/* Card 2 behind */}
             <div className="about-deck-card card-mid">
-              <img src="/images/fotos/aulao.jpg" alt="Aulão DACOMP" />
+              <img
+                src="/images/fotos/aulao.jpg"
+                alt="Aulão DACOMP"
+                loading="lazy"
+                decoding="async"
+              />
               <div className="about-card-overlay">
                 <h3 className="about-card-title">Aulões & Acadêmico</h3>
                 <p className="about-card-desc">
@@ -80,7 +90,12 @@ export default function About() {
 
             {/* Card 3 behind */}
             <div className="about-deck-card card-back">
-              <img src="/images/fotos/empresas.jpg" alt="Parcerias com empresas" />
+              <img
+                src="/images/fotos/empresas.jpg"
+                alt="Parcerias com empresas"
+                loading="lazy"
+                decoding="async"
+              />
               <div className="about-card-overlay">
                 <h3 className="about-card-title">Mercado & Empresas</h3>
                 <p className="about-card-desc">
@@ -94,7 +109,12 @@ export default function About() {
 
             {/* Card 4 behind */}
             <div className="about-deck-card card-far-back">
-              <img src="/images/fotos/eventos.jpg" alt="Eventos da Computação" />
+              <img
+                src="/images/fotos/eventos.jpg"
+                alt="Eventos da Computação"
+                loading="lazy"
+                decoding="async"
+              />
               <div className="about-card-overlay">
                 <h3 className="about-card-title">Comunidade DACOMP</h3>
                 <p className="about-card-desc">

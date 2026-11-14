@@ -1,0 +1,442 @@
+/* ============================================================================
+   DACOMP — ajustes mobile
+   Carregado depois de index.css e auth.css.
+   ============================================================================ */
+
+@media (max-width: 900px) {
+  /* Navbar / menu mobile */
+  .navbar {
+    padding: 0 18px;
+  }
+
+  .mobile-menu-overlay {
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 96px 16px 32px;
+    overflow-y: auto;
+  }
+
+  .mobile-menu-overlay a {
+    font-size: 1.15rem;
+    padding: 10px 20px;
+  }
+
+  .mobile-login-btn,
+  .mobile-menu-overlay .mobile-register-link {
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 130px 22px 56px;
+    gap: 24px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .hero-description {
+    max-width: 100%;
+  }
+
+  .hero-mascot {
+    max-width: 100%;
+    flex-shrink: 1;
+  }
+
+  .hero-mascot img {
+    height: auto;
+    max-height: 300px;
+    max-width: 100%;
+  }
+
+  .hero-watermark {
+    display: none;
+  }
+
+  /* Animações de entrada: no mobile, sem deslocamento horizontal */
+  .animate-on-scroll.from-left,
+  .animate-on-scroll.from-right {
+    transform: translateY(30px);
+  }
+
+  .animate-on-scroll.from-left.visible,
+  .animate-on-scroll.from-right.visible {
+    transform: translateY(0);
+  }
+
+  /* Sobre */
+  .about {
+    min-height: auto;
+    padding: 56px 0;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 22px;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .about-left {
+    max-width: 640px;
+  }
+
+  .about-title {
+    font-size: 2.6rem;
+  }
+
+  .about-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about-text {
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .about-right {
+    width: 100%;
+    min-height: 0;
+    justify-content: center;
+  }
+
+  .about-cards-deck {
+    width: 100%;
+    max-width: 380px;
+    height: 440px;
+  }
+
+  .about-deck-card {
+    height: 420px;
+    border-radius: 26px;
+    box-shadow: -8px 12px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-front {
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .card-mid {
+    left: 10px;
+    top: 10px;
+    width: calc(100% - 20px);
+    opacity: 0.9;
+  }
+
+  .card-back,
+  .card-far-back {
+    display: none;
+  }
+
+  .about-cards-deck:hover .card-front,
+  .about-cards-deck:hover .card-mid,
+  .about-cards-deck .about-deck-card:hover {
+    transform: none !important;
+  }
+
+  .about-card-overlay {
+    padding: 26px 18px 20px;
+  }
+
+  .about-card-title {
+    font-size: 1.1rem;
+  }
+
+  .about-card-desc {
+    font-size: 0.82rem;
+  }
+
+  .about-card-btn {
+    padding: 9px 24px;
+    font-size: 0.8rem;
+  }
+
+  .about-watermark,
+  .about-watermark-right,
+  .about-corner-mascot {
+    display: none;
+  }
+
+  /* Mapa */
+  .map-section {
+    padding: 24px 0 40px;
+  }
+
+  .map-container {
+    padding: 0 16px;
+  }
+
+  /* Gestão */
+  .gestao-section {
+    padding: 64px 0 80px;
+  }
+
+  .gestao-container {
+    padding: 0 20px;
+    gap: 36px;
+  }
+
+  .gestao-main-title {
+    font-size: 2.4rem;
+    margin-bottom: 24px;
+  }
+
+  .gestao-image {
+    max-width: 100%;
+  }
+
+  .filter-buttons-grid {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.82rem;
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .member-card {
+    padding: 22px 16px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    height: 78px;
+    padding: 0 16px;
+  }
+
+  .navbar.scrolled {
+    height: 72px;
+  }
+
+  .navbar-logo img {
+    height: 48px;
+  }
+
+  .navbar.scrolled .navbar-logo img {
+    height: 42px;
+  }
+
+  .hero-content {
+    padding: 108px 18px 48px;
+    gap: 18px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+  }
+
+  .hero-cta {
+    padding: 12px 28px;
+    font-size: 0.88rem;
+  }
+
+  .hero-mascot img {
+    height: auto;
+    max-height: 240px;
+    max-width: 100%;
+  }
+
+  .hero-logo-text img {
+    max-width: 220px;
+  }
+
+  .about {
+    padding: 44px 0;
+  }
+
+  .about-content {
+    padding: 26px 16px;
+    gap: 24px;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .about-cards-deck {
+    max-width: 320px;
+    height: 400px;
+  }
+
+  .about-deck-card {
+    height: 380px;
+    border-radius: 22px;
+  }
+
+  .card-mid {
+    display: none;
+  }
+
+  .about-card-overlay {
+    padding: 22px 16px 18px;
+  }
+
+  .about-card-title {
+    font-size: 1rem;
+  }
+
+  .about-card-desc {
+    font-size: 0.78rem;
+  }
+
+  .about-card-btn {
+    padding: 8px 20px;
+    font-size: 0.75rem;
+  }
+
+  .map-section {
+    padding: 16px 0 32px;
+  }
+
+  .map-container {
+    padding: 0 12px;
+  }
+
+  .map-image-wrapper {
+    border-radius: 12px;
+  }
+
+  .gestao-section {
+    padding: 48px 0 64px;
+  }
+
+  .gestao-container {
+    padding: 0 16px;
+    gap: 28px;
+  }
+
+  .gestao-main-title {
+    font-size: 2rem;
+  }
+
+  .gestao-badge {
+    padding: 5px 14px;
+    font-size: 0.72rem;
+  }
+
+  .gestao-image-wrapper {
+    margin-bottom: 8px;
+  }
+
+  .filter-title {
+    font-size: 1.05rem;
+  }
+
+  .filter-buttons-grid {
+    gap: 6px;
+  }
+
+  .filter-btn {
+    padding: 7px 13px;
+    font-size: 0.76rem;
+  }
+
+  .members-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .member-card {
+    padding: 20px 14px 18px;
+  }
+
+  .member-avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .member-name {
+    font-size: 1rem;
+  }
+
+  .member-role {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .auth-page,
+  .profile-page,
+  .dashboard-page {
+    padding: 94px 12px 50px;
+  }
+
+  .auth-card,
+  .dialog-card,
+  .profile-card,
+  .panel-card {
+    padding: 18px 14px;
+  }
+
+  .dashboard-title {
+    font-size: 1.4rem;
+  }
+
+  .profile-avatar {
+    width: 64px;
+    height: 64px;
+    font-size: 1.3rem;
+  }
+
+  .stat-card {
+    padding: 14px;
+  }
+
+  .notice-item-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .notice-actions {
+    flex-direction: column;
+  }
+
+  .notice-actions .icon-text-btn {
+    width: 100%;
+  }
+
+  .notice-form-actions > * {
+    width: 100%;
+  }
+
+  .admin-mobile-role {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-mobile-role .role-select {
+    width: 100%;
+  }
+}

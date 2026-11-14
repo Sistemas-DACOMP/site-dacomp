@@ -223,6 +223,57 @@ export default function AdminPanel() {
     );
   };
 
+  const renderUserActions = (user, isSelf, isBusy) => (
+    <div className="admin-actions">
+      <button
+        type="button"
+        className="admin-icon-btn"
+        onClick={() => handleToggleActive(user)}
+        disabled={isSelf || isBusy}
+        title={
+          isSelf
+            ? 'Você não pode desativar a própria conta'
+            : user.active
+              ? 'Desativar conta'
+              : 'Reativar conta'
+        }
+        aria-label={`${
+          user.active ? 'Desativar' : 'Reativar'
+        } conta de ${user.nome}`}
+      >
+        <Power size={16} aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        className="admin-icon-btn"
+        onClick={() => handleResetPassword(user)}
+        disabled={isSelf || isBusy}
+        title={
+          isSelf
+            ? 'Altere sua senha pelo perfil'
+            : 'Gerar nova senha temporária'
+        }
+        aria-label={`Gerar nova senha temporária para ${user.nome}`}
+      >
+        <KeyRound size={16} aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        className="admin-icon-btn danger"
+        onClick={() => handleDelete(user)}
+        disabled={isSelf || isBusy}
+        title={
+          isSelf
+            ? 'Você não pode excluir a própria conta'
+            : 'Excluir conta'
+        }
+        aria-label={`Excluir conta de ${user.nome}`}
+      >
+        <Trash2 size={16} aria-hidden="true" />
+      </button>
+    </div>
+  );
+
   if (!currentUser) {
     return null;
   }
@@ -346,8 +397,9 @@ export default function AdminPanel() {
               </span>
             </div>
           ) : (
-            <div className="table-wrap">
-              <table className="admin-table">
+            <>
+              <div className="table-wrap">
+                <table className="admin-table">
                 <thead>
                   <tr>
                     <th scope="col">Pessoa</th>
@@ -410,62 +462,78 @@ export default function AdminPanel() {
                             {user.active ? 'Ativa' : 'Inativa'}
                           </span>
                         </td>
-                        <td>
-                          <div className="admin-actions">
-                            <button
-                              type="button"
-                              className="admin-icon-btn"
-                              onClick={() => handleToggleActive(user)}
-                              disabled={isSelf || isBusy}
-                              title={
-                                isSelf
-                                  ? 'Você não pode desativar a própria conta'
-                                  : user.active
-                                    ? 'Desativar conta'
-                                    : 'Reativar conta'
-                              }
-                              aria-label={`${
-                                user.active ? 'Desativar' : 'Reativar'
-                              } conta de ${user.nome}`}
-                            >
-                              <Power size={16} aria-hidden="true" />
-                            </button>
-                            <button
-                              type="button"
-                              className="admin-icon-btn"
-                              onClick={() => handleResetPassword(user)}
-                              disabled={isSelf || isBusy}
-                              title={
-                                isSelf
-                                  ? 'Altere sua senha pelo perfil'
-                                  : 'Gerar nova senha temporária'
-                              }
-                              aria-label={`Gerar nova senha temporária para ${user.nome}`}
-                            >
-                              <KeyRound size={16} aria-hidden="true" />
-                            </button>
-                            <button
-                              type="button"
-                              className="admin-icon-btn danger"
-                              onClick={() => handleDelete(user)}
-                              disabled={isSelf || isBusy}
-                              title={
-                                isSelf
-                                  ? 'Você não pode excluir a própria conta'
-                                  : 'Excluir conta'
-                              }
-                              aria-label={`Excluir conta de ${user.nome}`}
-                            >
-                              <Trash2 size={16} aria-hidden="true" />
-                            </button>
-                          </div>
-                        </td>
+                        <td>{renderUserActions(user, isSelf, isBusy)}</td>
                       </tr>
                     );
                   })}
                 </tbody>
-              </table>
-            </div>
+                </table>
+              </div>
+
+              <div className="admin-mobile-list">
+                {filteredUsers.map((user) => {
+                  const isSelf = user.id === currentUser.id;
+                  const isBusy = busyUserId === user.id;
+
+                  return (
+                    <article className="admin-mobile-card" key={user.id}>
+                      <div className="admin-mobile-head">
+                        <div className="user-cell">
+                          <strong>
+                            {user.nome}
+                            {isSelf ? (
+                              <span className="you-tag">você</span>
+                            ) : null}
+                          </strong>
+                          <span>@{user.username}</span>
+                        </div>
+                        <span
+                          className={`status-dot ${
+                            user.active ? '' : 'inactive'
+                          }`}
+                        >
+                          {user.active ? 'Ativa' : 'Inativa'}
+                        </span>
+                      </div>
+
+                      <div className="admin-mobile-meta">
+                        <span>
+                          Matrícula <strong>{user.matricula}</strong>
+                        </span>
+                        <span>
+                          E-mail <strong>{user.email}</strong>
+                        </span>
+                      </div>
+
+                      <div className="admin-mobile-role">
+                        <span className={`role-badge ${user.role}`}>
+                          {roleLabel(user.role)}
+                        </span>
+                        {!isSelf ? (
+                          <select
+                            className="role-select"
+                            value={user.role}
+                            onChange={(event) =>
+                              handleRoleChange(user, event)
+                            }
+                            disabled={isBusy}
+                            aria-label={`Função de ${user.nome}`}
+                          >
+                            <option value={ROLES.ALUNO}>Aluno</option>
+                            <option value={ROLES.MEMBRO}>Membro</option>
+                            <option value={ROLES.ADMIN}>
+                              Administrador
+                            </option>
+                          </select>
+                        ) : null}
+                      </div>
+
+                      {renderUserActions(user, isSelf, isBusy)}
+                    </article>
+                  );
+                })}
+              </div>
+            </>
           )}
         </section>
 

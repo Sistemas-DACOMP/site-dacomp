@@ -50,6 +50,8 @@ export default function Gestao() {
               src="/images/gestao.png"
               alt="Gestão Lovelace DACOMP 2026-2027"
               className="gestao-image"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

@@ -7,6 +7,8 @@ export default function MapSection() {
             src="/images/MAPA.png"
             alt="Mapa DACOMP UFU"
             className="map-image"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
